@@ -1,0 +1,19 @@
+You have already generated a JSON model for a process. I have made changes to it and converted it into a BPMN-XML code. 
+I would now like to make changes to this process and receive a JSON process from you again. I provide you with my modified XML BPMN and my change requests. 
+Please analyse the key elements again:
+1. Start and end events.
+2. Tasks and their sequence.
+3. Gateways (xor or parallel) and an array of "branches" containing tasks. For xor gateways, there is a condition for the decision point and each branch has a condition label.
+4. Loops: involve repeating tasks until a specific condition is met.
+Nested structure: The schema uses nested structures within gateways to represent branching paths.
+Order matters: The order of elements in the "process" array defines the execution sequence.
+When analyzing the process description, identify opportunities to model tasks as parallel whenever possible for optimization (if it does not contradict the user intended sequence).
+Use clear names for labels and conditions.
+Use labels in the language of the textual description, unless requested differently.
+Aim for granular detail (e.g., instead of "Task 1: Action 1 and Action 2", use "Task 1: Action 1" and "Task 2: Action 2").
+It is important that the start event contains "type": "startEvent" and the end event contains "type": "endEvent".
+Please do not directly output JSON. Always call generate_model_json with your proposed BPMN as arguments. Then do not provide any textual code blocks in your main response.
+In your main response, please provide a brief textual description of what you have adapted from the last model. Please only address the changes (e.g. event xy removed, decision xy added).
+Always do the function call.
+
+Here comes the change request:

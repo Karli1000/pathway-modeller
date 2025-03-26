@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <title>Einfaches BPMN-Frontend</title>
+
+  <link rel="stylesheet" href="{{ url_for('static', filename='vendor/bpmn-js/dist/assets/diagram-js.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='vendor/bpmn-js/dist/assets/bpmn-font/css/bpmn.css') }}">
+
+  <script src="{{ url_for('static', filename='vendor/bpmn-js/dist/bpmn-modeler.development.js') }}"></script>
+  <script src="{{ url_for('static', filename='vendor/bpmn-js/dist/bpmn-moddle.umd.js') }}"></script>
+  <script src="{{ url_for('static', filename='vendor/bpmn-js/dist/bpmn-js-differ.umd.js') }}"></script>
+
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+  <div id="chat-container">
+
+    <div id="api-key-container">
+      <input id="api-key-field" type="text" placeholder="OpenAI API-Key eingeben..." />
+      <button id="save-api-key-button">API-Key speichern</button>
+    </div>
+    
+    <div id="chat-controls">
+      <button id="loadPdfButton">Load PDF</button>
+      <button id="clearButton">Clear</button>
+      <button id="importButton">Import</button>
+      <button id="exportButton">Export</button>
+      <input id="bpmnImportFile" type="file" accept=".bpmn,.xml" style="display:none" />
+    </div>
+
+    <h2>Chat</h2>
+    <div id="chat-messages"></div>
+    <div class="chat-input">
+      <input id="chat-input-field" type="text" placeholder="Nachricht eingeben..." />
+      <button id="send-button">Senden</button>
+    </div>
+  </div>
+
+  <div id="bpmn-container">
+    <div id="canvas"></div>
+  </div>
+
+  <script src="{{ url_for('static', filename='js/app.js') }}" defer></script>
+</body>
+</html>
